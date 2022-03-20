@@ -49,3 +49,23 @@ plot(density(movies$Runtime))
 
 # summarize quantitative variable
 summary(movies$Runtime)
+
+# bivariate statistics for two qualitative variables
+table(genres$Genre, genres$Rating)
+
+# bivariate statistics for two quantitative variables
+
+#covariance
+cov(movies$Runtime, movies$Box.Office)
+cov(movies$Critic.Score, movies$Box.Office)
+
+# correlation coefficients
+cor(movies$Runtime, movies$Box.Office)
+cor(movies$Critic.Score, movies$Box.Office)
+
+# bivariate statistics for both a qualitative and quantitative variable
+tapply(movies$Box.Office, movies$Rating, mean)
+tapply(genres$Box.Office, genres$Genre, mean)
+
+# summarize entire table
+summary(movies)
