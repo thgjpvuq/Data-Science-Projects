@@ -1,2 +1,3 @@
 # Data Science Projects
- All Projects relating to the Data Science course
+All projects relating to Data Science.
+This includes projects in Python and R.
