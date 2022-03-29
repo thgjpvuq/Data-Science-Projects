@@ -1,0 +1,72 @@
+---
+title: "module2-lattice"
+output:
+  pdf_document: default
+  html_document: default
+date: '2022-03-25'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+# install.packages("lattice")
+library(lattice)
+library(rmarkdown)
+
+# create a data frame
+df <- data.frame(
+  Name = c("a", "b", "c"),
+  Value = c(1, 2, 3))
+
+# plot with defaults
+dotplot(
+  x = Value ~ Name,
+  data = df)
+```
+```{r}
+# plot with parameters
+dotplot(
+  x = Value ~ Name,
+  data = df,
+  main = "Hello World",
+  xlab = "Name",
+  ylab = "Value"
+)
+```
+```{r}
+# create a barchart
+barchart(
+  x = Value ~ Name,
+  data = df,
+  main = "Hello World",
+  col = "skyblue",
+  xlab = "Name",
+  ylab = "Value"
+)
+```
+```{r}
+# view help files
+?barchart
+?formula
+```

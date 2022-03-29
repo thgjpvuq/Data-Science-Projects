@@ -1,0 +1,147 @@
+```{r}
+movies <- read.csv("Movies.csv")
+library(rmarkdown)
+```
+# Base R
+
+## Univariate Visualiations of a Quantitative Variable
+
+### Create a dot plot of runtime
+
+```{r}
+plot(
+  x = movies$Runtime,
+  y = rep(0, nrow(movies)),
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)",
+  ylab = "",
+  yaxt = "n"
+)
+```
+
+### Create a dot plot with alpha transparency
+
+```{r}
+plot(
+  x = movies$Runtime,
+  y = rep(0, nrow(movies)),
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)",
+  ylab = "",
+  yaxt = "n",
+  pch = 16,
+  col = rgb(0, 0, 0, 0.1)
+)
+```
+
+### Add jitter to dot plot
+
+```{r}
+plot(
+  x = movies$Runtime,
+  y = jitter(rep(0, nrow(movies))),
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)",
+  ylab = "",
+  yaxt = "n"
+)
+```
+
+### Create a boxplot of runtime
+
+```{r}
+boxplot(
+  x = movies$Runtime,
+  horizontal = TRUE,
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)"
+)
+```
+
+### Create a histogram of runtime
+
+```{r}
+hist(
+  x = movies$Runtime,
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)"
+)
+```
+
+### Create a course-grain histogram
+
+```{r}
+hist(
+  x = movies$Runtime,
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)",
+  breaks = 10
+)
+```
+
+### Create a fine-grain histogram
+
+```{r}
+hist(
+  x = movies$Runtime,
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)",
+  breaks = 30
+)
+```
+
+### Create a density plot of runtime
+
+```{r}
+plot(
+  x = density(movies$Runtime),
+  main = "Distribution of Movie Runtimes",
+  xlab = "Runtime (minutes)"
+)
+```
+
+### Create small multiples of all four
+
+```{r}
+par(mfrow = c(4,1))
+```
+
+```{r}
+plot(
+    x = movies$Runtime, 
+    y = jitter(rep(0, nrow(movies))), 
+    xlim = c(0, 250),
+    main = "Distribution of Movie Runtimes",
+    xlab = "",
+    ylab = "", 
+    yaxt = "n",
+    pch = 16,
+    col = rgb(0, 0, 0, 0.1))
+
+boxplot(
+    x = movies$Runtime,
+    ylim = c(0, 250),
+    horizontal = TRUE)
+
+hist(
+    x = movies$Runtime,
+    xlim = c(0, 250),
+    main = "",
+    xlab = "",
+    ylab = "",
+    yaxt = "n")
+
+plot(
+    x = density(movies$Runtime),
+    xlim = c(0, 250),
+    main = "",
+    xlab = "Runtime (minutes)",
+    ylab = "",
+    yaxt = "n")
+```
+
+### Reset multi-row display
+
+```{r}
+par(mfrow = c(1, 1))
+```

@@ -1,0 +1,55 @@
+# GGPlot2
+
+```{r}
+movies <- read.csv("Movies.csv")
+library(ggplot2)
+```
+
+## Create a frequency bar chart for rating
+
+```{r}
+ggplot(
+  data = movies,
+  aes(x = Rating)) +
+  geom_bar() +
+  ggtitle("Count of movies by Rating")
+```
+## Create a horiontal frequency bar chart for genre
+```{r}
+ggplot(
+  data = movies,
+  aes(x = Rating)) +
+  geom_bar() +
+  coord_flip() +
+  ggtitle("Count of movies by Rating")
+```
+## create a Cleveland dot plot
+```{r}
+ggplot(
+  data = movies,
+  aes(x = Rating)) +
+  geom_point(stat = "count") +
+  coord_flip() +
+  ggtitle("Count of movies by Rating")
+```
+## create a pie chart
+```{r}
+ggplot(
+  data = movies,
+  aes(x = "", fill = Rating)) +
+  geom_bar() +
+  coord_polar(theta = "y") +
+  ggtitle("Count of movies by Rating") +
+  ylab("")
+```
+## create pie chart of awards
+```{r}
+ggplot(
+  data = movies,
+  aes(x = "", fill = Awards)) +
+  geom_bar() +
+  coord_polar(theta = "y") +
+  ggtitle("Proportion of movies that won awards") +
+  ylab("")
+```
+
