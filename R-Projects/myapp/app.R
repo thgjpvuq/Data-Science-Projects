@@ -12,7 +12,7 @@ ui <- fluidPage(
     sidebarPanel(
       "sidebar panel",
       selectInput(
-        "col",
+        "color",
         label = "Select color",
         choices = c("blue",
                     "orange",
@@ -43,7 +43,8 @@ server <- function(input, output) {
     hist(
       x = iris$Sepal.Length,
       main = "Sepal.Length",
-      xlab = "cm")
+      xlab = "cm",
+      col = input$color)
   })
   
   output$SW <- renderPlot({
@@ -51,7 +52,8 @@ server <- function(input, output) {
     hist(
       x = iris$Sepal.Width,
       main = "Sepal.Width",
-      xlab = "cm")
+      xlab = "cm",
+      col = input$color)
   })
   
   output$PL <- renderPlot({
@@ -59,7 +61,8 @@ server <- function(input, output) {
     hist(
       x = iris$Petal.Length,
       main = "Petal.Length",
-      xlab = "cm")
+      xlab = "cm",
+      col = input$color)
   })
 }
 
