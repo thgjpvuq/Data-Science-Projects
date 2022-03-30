@@ -6,11 +6,11 @@ iris
 
 # Define UI
 ui <- fluidPage(
-  titlePanel("title panel"),
+  titlePanel(h1("Iris Shiny App")),
   
   sidebarLayout(
     sidebarPanel(
-      "sidebar panel",
+      "",
       selectInput(
         "color",
         label = "Select color",
@@ -21,7 +21,7 @@ ui <- fluidPage(
       )
     ),
     mainPanel(
-      "main panel",
+      h2("Plots"),
       plotOutput(
         "SL" # Sepal.Length
       ),
